@@ -1,0 +1,33 @@
+openapi: '3.0.0'
+info:
+  version: 1.0.0
+  title: Warehouse service
+  license:
+    name: MIT
+servers:
+  - url: /
+    description: Localhost
+paths:
+  /health:
+    get:
+      summary: Get API health information
+      tags:
+        - retention
+      x-router-controller: healthController
+      operationId: getStatus
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/health'
+
+components:
+  schemas:
+    health:
+      type: object
+      properties:
+        status:
+          type: string
+          example: UP
