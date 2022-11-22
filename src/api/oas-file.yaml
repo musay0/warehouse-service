@@ -30,4 +30,3 @@ components:
       properties:
         status:
           type: string
-          example: UP

@@ -6,6 +6,7 @@ import {initialize} from '@oas-tools/core';
 import logger from '#commons/logger';
 
 const oasToolsConfig = {
+  oasFile: 'src/api/oas-file.yaml',
   middleware: {
     router: {
       controllers: './src/controllers',

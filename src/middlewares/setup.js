@@ -10,7 +10,7 @@ import responseHeaders from '#middlewares/responseHeaders';
 // list all the middlewares to apply centrally
 const MIDDLEWARE_QUEUE = [
   express.json(), // parses incoming requests with JSON payloads
-  responseHeaders, // set custom response headers
+  // responseHeaders, // set custom response headers
 ];
 
 /**
