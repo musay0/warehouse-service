@@ -30,13 +30,13 @@ paths:
         - in: path
           name: productId
           schema:
-            type: integer
+            type: string
           required: true
           description: Numeric ID of the product to delete
       tags:
         - retention
-      x-router-controller: productsController
-      operationId: sellProduct
+      x-router-controller: productController
+      operationId: sell
       responses:
         '204':
           description: Success
@@ -50,8 +50,8 @@ paths:
       summary: Get all products and quantity of each that is an available with the current inventory
       tags:
         - retention
-      x-router-controller: productsController
-      operationId: getAllProducts
+      x-router-controller: productController
+      operationId: getAll
       responses:
         '200':
           description: Success

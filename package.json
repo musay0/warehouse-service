@@ -11,6 +11,7 @@
   "imports": {
     "#commons/*": "./src/commons/*.js",
     "#controllers/*": "./src/controllers/*.js",
+    "#services/*": "./src/services/*.js",
     "#middlewares/*": "./src/middlewares/*.js",
     "#repository/*": "./src/repository/*.js"
   },

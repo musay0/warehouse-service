@@ -1,8 +1,20 @@
-import {DataTypes} from 'sequelize';
-import {sequelize} from '#repository/config';
+import logger from '#commons/logger';
+import {DataTypes, QueryTypes} from 'sequelize';
+import {sequelize} from '../config.cjs';
 
 const Product = sequelize.define('PRODUCT', {
-  name: DataTypes.STRING,
+  p_id: {
+    type: DataTypes.STRING,
+    primaryKey: true,
+  },
+  name: {
+    type: DataTypes.STRING,
+  },
 }, {timestamps: false});
+
+Product.afterDestroy((instance, options) => {
+  logger.info('product is destroyed');
+});
+
 
 export default Product;

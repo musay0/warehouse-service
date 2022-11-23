@@ -1,5 +1,5 @@
 const { Sequelize } = require('sequelize');
-const TABLE_NAME = 'PRODUCT_ARTICLE';
+const TABLE_NAME = 'PRODUCT_ARTICLEs';
 
 /**
  * @param {Object} queryInterface
@@ -7,11 +7,17 @@ const TABLE_NAME = 'PRODUCT_ARTICLE';
  */
 async function up({ context: queryInterface }) {
   await queryInterface.createTable(TABLE_NAME, {
-    p_id: {
+    id: {
+      type: Sequelize.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
+      allowNull: false
+    },
+    PRODUCTPId: {
       allowNull: false,
       type: Sequelize.STRING,
     },
-    art_id: {
+    ARTICLEINVENTORYArtId: {
       allowNull: false,
       type: Sequelize.STRING,
     },

@@ -1,6 +1,6 @@
 const { Sequelize } = require('sequelize');
 
-const TABLE_NAME = 'ARTICLE_INVENTORY';
+const TABLE_NAME = 'ARTICLE_INVENTORYs';
 
 /**
  * @param {Object} queryInterface

@@ -1,8 +1,8 @@
 const getUuid = require('uuid-by-string');
 const seedProducts = require('../../../docs/products.json');
 
-const TABLE_NAME = 'PRODUCT';
-const MAPPING_TABLE_NAME = 'PRODUCT_ARTICLE';
+const TABLE_NAME = 'PRODUCTs';
+const MAPPING_TABLE_NAME = 'PRODUCT_ARTICLEs';
 
 function productArticleInventory() {
   const products = [];
@@ -15,7 +15,10 @@ function productArticleInventory() {
     });
 
     articles = p.contain_articles.map(article => {
-      article.p_id = pId;
+      article.PRODUCTPId = pId;
+      article.ARTICLEINVENTORYArtId = article.art_id;
+      delete article.art_id;
+
       delete article.name;
       return article;
     });

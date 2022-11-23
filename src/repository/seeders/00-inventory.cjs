@@ -1,6 +1,6 @@
 const seedArticles = require('../../../docs/inventory.json');
 
-const TABLE_NAME = 'ARTICLE_INVENTORY';
+const TABLE_NAME = 'ARTICLE_INVENTORYs';
 
 module.exports = {
   async up ({ context: queryInterface }) {
