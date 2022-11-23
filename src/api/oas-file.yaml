@@ -40,6 +40,8 @@ paths:
       responses:
         '204':
           description: Success
+        '500':
+          description: Error
           content:
             application/json:
               schema:

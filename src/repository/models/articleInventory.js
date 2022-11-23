@@ -1,7 +1,7 @@
 import {DataTypes} from 'sequelize';
 import {sequelize} from '../config.cjs';
 
-const ArticleInventory = sequelize.define('ARTICLE_INVENTORY', {
+const ArticleInventory = sequelize.define('ARTICLE_INVENTORYs', {
   'art_id': {
     type: DataTypes.STRING,
     primaryKey: true,
@@ -12,6 +12,6 @@ const ArticleInventory = sequelize.define('ARTICLE_INVENTORY', {
   'stock': {
     type: DataTypes.INTEGER,
   },
-}, {timestamps: false});
+}, {timestamps: false, freezeTableName: true});
 
 export default ArticleInventory;

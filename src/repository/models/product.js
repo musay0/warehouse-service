@@ -1,5 +1,5 @@
 import logger from '#commons/logger';
-import {DataTypes, QueryTypes} from 'sequelize';
+import {DataTypes} from 'sequelize';
 import {sequelize} from '../config.cjs';
 
 const Product = sequelize.define('PRODUCT', {

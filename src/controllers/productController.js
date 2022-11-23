@@ -2,6 +2,7 @@
  * @file configures the product API's
  */
 import * as productService from '#services/productService';
+import {errorHandler} from '#middlewares/responseHeaders';
 
 /**
  * Method to handle sell product API request
@@ -11,9 +12,13 @@ import * as productService from '#services/productService';
  * @param {Function} _next the chained function
  */
 async function sell(req, res, _next) {
-  const productId = req.params?.productId;
-  const product = await productService.deleteById(productId);
-  res.status(204).send();
+  try {
+    const productId = req.params?.productId;
+    await productService.sell(productId);
+    res.status(204).send();
+  } catch (e) {
+    errorHandler(e, req, res);
+  }
 }
 
 /**
@@ -24,8 +29,12 @@ async function sell(req, res, _next) {
  * @param {Function} _next the chained function
  */
 async function getAll(_req, res, _next) {
-  const result = await productService.getAll();
-  res.status(200).send(result);
+  try {
+    const result = await productService.getAll();
+    res.status(200).send(result);
+  } catch (e) {
+    errorHandler(e, _req, res);
+  }
 }
 export {
   sell,

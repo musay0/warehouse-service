@@ -5,10 +5,12 @@
 import logger from '#commons/logger';
 import express from 'express';
 import oasMiddleware from '#middlewares/oasTools';
+import {errorHandler} from '#middlewares/responseHeaders';
 
 // list all the middlewares to apply centrally
 const MIDDLEWARE_QUEUE = [
   express.json(), // parses incoming requests with JSON payloads
+  errorHandler,
 ];
 
 /**
