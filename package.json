@@ -11,7 +11,8 @@
   "imports": {
     "#commons/*": "./src/commons/*.js",
     "#controllers/*": "./src/controllers/*.js",
-    "#middlewares/*": "./src/middlewares/*.js"
+    "#middlewares/*": "./src/middlewares/*.js",
+    "#repository/*": "./src/repository/*.js"
   },
   "scripts": {
     "start": "node src/index.js",
@@ -21,8 +22,11 @@
   },
   "dependencies": {
     "@oas-tools/core": "^3.0.3",
-    "config": "^3.3.8",
+    "dotenv": "^16.0.3",
     "express": "^4.18.2",
+    "sequelize": "^6.25.8",
+    "sqlite3": "^5.1.2",
+    "umzug": "^3.2.1",
     "winston": "^3.8.2"
   },
   "devDependencies": {

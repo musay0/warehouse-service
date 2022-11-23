@@ -23,6 +23,42 @@ paths:
               schema:
                 $ref: '#/components/schemas/health'
 
+  /products/{productId}:
+    delete:
+      summary: Remove(Sell) a product and update inventory
+      parameters:
+        - in: path
+          name: productId
+          schema:
+            type: integer
+          required: true
+          description: Numeric ID of the product to delete
+      tags:
+        - retention
+      x-router-controller: productsController
+      operationId: sellProduct
+      responses:
+        '204':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/health'
+
+  /products:
+    get:
+      summary: Get all products and quantity of each that is an available with the current inventory
+      tags:
+        - retention
+      x-router-controller: productsController
+      operationId: getAllProducts
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/productList'
 components:
   schemas:
     health:
@@ -30,3 +66,28 @@ components:
       properties:
         status:
           type: string
+    productList:
+      type: array
+      items:
+        $ref: '#/components/schemas/products'
+    products:
+      type: object
+      properties:
+        name:
+          type: string
+        contain_articles:
+          type: array
+          items:
+            $ref: '#/components/schemas/inventory'
+    inventory:
+      type: object
+      properties:
+        art_id:
+          type: string
+        name: 
+          type: string
+        amount_of:
+          type: string
+        stock:
+          type: string
+

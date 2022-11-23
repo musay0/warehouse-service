@@ -1,9 +1,14 @@
-import logger from '#commons/logger';
+import * as dotenv from 'dotenv';
+dotenv.config();
 import express from 'express';
+import logger from '#commons/logger';
 import setupMiddlewares from '#middlewares/setup';
+import * as dbConfig from './repository/config.cjs';
 
 logger.info('starting the app');
-
+(async () => {
+  await dbConfig.migrate();
+})();
 // Fetch PORT env variable or use 8080 as default
 const PORT = parseInt(parseInt(process.env.PORT)) || 8080;
 
