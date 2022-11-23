@@ -8,11 +8,10 @@ const TABLE_NAME = 'PRODUCT';
  */
 async function up({ context: queryInterface }) {
   await queryInterface.createTable(TABLE_NAME, {
-    product_id: {
+    p_id: {
       allowNull: false,
-      autoIncrement: true,
       primaryKey: true,
-      type: Sequelize.INTEGER,
+      type: Sequelize.STRING,
     },
     name: {
       allowNull: false,

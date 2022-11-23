@@ -8,6 +8,7 @@ import * as dbConfig from './repository/config.cjs';
 logger.info('starting the app');
 (async () => {
   await dbConfig.migrate();
+  await dbConfig.seed();
 })();
 // Fetch PORT env variable or use 8080 as default
 const PORT = parseInt(parseInt(process.env.PORT)) || 8080;

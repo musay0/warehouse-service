@@ -7,9 +7,9 @@ const TABLE_NAME = 'PRODUCT_ARTICLE';
  */
 async function up({ context: queryInterface }) {
   await queryInterface.createTable(TABLE_NAME, {
-    product_id: {
+    p_id: {
       allowNull: false,
-      type: Sequelize.INTEGER,
+      type: Sequelize.STRING,
     },
     art_id: {
       allowNull: false,

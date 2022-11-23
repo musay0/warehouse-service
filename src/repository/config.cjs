@@ -8,7 +8,7 @@ const sequelize = new Sequelize({
   storage: './database.sqlite'
 });
 
-const umzug = new Umzug({
+const migrator = new Umzug({
   migrations: {glob: 'src/repository/migrations/*.cjs'},
   context: sequelize.getQueryInterface(),
   storage: new SequelizeStorage({sequelize}),
@@ -18,9 +18,25 @@ const umzug = new Umzug({
    * @return migartion response
    */
 async function migrate() {
-  return umzug.up();
+  return migrator.up();
+}
+
+const seeder = new Umzug({
+	migrations: {
+		glob: ['src/repository/seeders/*.cjs'],
+	},
+	context: sequelize.getQueryInterface(),
+	storage: new SequelizeStorage({
+		sequelize,
+		modelName: 'seeder_meta',
+	}),
+	logger: console,
+});
+
+async function seed() {
+  return seeder.up();
 }
 
 module.exports = {
-  sequelize, migrate
+  sequelize, migrate, seed
 };
