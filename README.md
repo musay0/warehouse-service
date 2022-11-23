@@ -25,7 +25,9 @@ Prerequisites
   - Code needs more documentations
 - Unit tests
   - Tests not implemented yet but in future scope
-
+- ESM and commonjs
+  - had to use commonjs in places as the ORM(sequilize) was not compatible with ESM
+  - ORM configs can be optimized
 
 ## Build Setup
 ### using node locally
@@ -40,16 +42,10 @@ yarn dev
 yarn start
 
 # Lint the JavaScript
-npm run lint
+yarn lint
 
 # Lint the JavaScript and fix errors
-npm run lint:fix
-
-# Run the tests
-npm run test
-
-# Run the tests with coverage
-npm run test:coverage
+yarn lint:fix
 ```
 
 ## Deployment
@@ -58,7 +54,9 @@ The application can be packaged as a docker image, but had some license issues s
 ## Source Structure
 ```
       .
-      |-src
+      |-.env                      # environment variables
+      |-docs                      # docs and data to seed
+      |-src                       # source of course
       | |-index.js                # startup scripts
       | |-api
       | | |-oas-file.yaml         # api specs and routing
@@ -72,5 +70,6 @@ The application can be packaged as a docker image, but had some license issues s
       | | |-models                # logical models for the ORM
       | | |-queries               # raw queries or wrappers for ORM
       | | |-seeders               # data is seeded from here
+
  
 ```
