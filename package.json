@@ -8,6 +8,10 @@
   "license": "MIT",
   "private": true,
   "type": "module",
+  "engines": {
+    "node": "18.*",
+    "yarn": "1.22.*"
+  },
   "imports": {
     "#commons/*": "./src/commons/*.js",
     "#controllers/*": "./src/controllers/*.js",
